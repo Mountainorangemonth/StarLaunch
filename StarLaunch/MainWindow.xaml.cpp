@@ -5,7 +5,7 @@
 #include "SettingsPage.xaml.h"
 #include "MorePage.xaml.h"
 
-// 新增必要的头文件
+
 #include <winrt/Microsoft.UI.Xaml.Media.h>
 #include <winrt/Windows.UI.Xaml.Interop.h>
 
@@ -16,7 +16,7 @@
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 using namespace Microsoft::UI::Xaml::Controls;
-using namespace winrt::Microsoft::UI::Xaml::Media; // 用于 DesktopAcrylicBackdrop
+using namespace winrt::Microsoft::UI::Xaml::Media; 
 
 namespace winrt::StarLaunch::implementation
 {
@@ -24,7 +24,6 @@ namespace winrt::StarLaunch::implementation
     {
         InitializeComponent();
         ExtendsContentIntoTitleBar(true);
-        // ✅ 修正后的命名空间
         SystemBackdrop(DesktopAcrylicBackdrop());
         NavView().SelectedItem(NavView().MenuItems().GetAt(0));
     }
