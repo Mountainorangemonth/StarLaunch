@@ -1,0 +1,9 @@
+namespace StarLaunch
+{
+    [default_interface]
+    runtimeclass DownloadsPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        DownloadsPage();
+        Int32 MyProperty;
+    }
+}

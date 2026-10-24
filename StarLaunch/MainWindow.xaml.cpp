@@ -1,19 +1,51 @@
 #include "pch.h"
 #include "MainWindow.xaml.h"
+#include "HomePage.xaml.h"
+#include "DownloadsPage.xaml.h"
+#include "SettingsPage.xaml.h"
+#include "MorePage.xaml.h"
+
+// 新增必要的头文件
+#include <winrt/Microsoft.UI.Xaml.Media.h>
+#include <winrt/Windows.UI.Xaml.Interop.h>
+
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
 #endif
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+using namespace Microsoft::UI::Xaml::Controls;
+using namespace winrt::Microsoft::UI::Xaml::Media; // 用于 DesktopAcrylicBackdrop
 
 namespace winrt::StarLaunch::implementation
 {
-    MainWindow::MainWindow() {
+    MainWindow::MainWindow()
+    {
+        InitializeComponent();
+        ExtendsContentIntoTitleBar(true);
+        // ✅ 修正后的命名空间
+        SystemBackdrop(DesktopAcrylicBackdrop());
+        NavView().SelectedItem(NavView().MenuItems().GetAt(0));
+    }
 
+    void MainWindow::NavView_SelectionChanged(
+        NavigationView const& sender,
+        NavigationViewSelectionChangedEventArgs const& args)
+    {
+        if (auto item = args.SelectedItem().try_as<NavigationViewItem>())
+        {
+            auto tag = unbox_value<hstring>(item.Tag());
+
+            if (tag == L"Home")
+                ContentFrame().Navigate(xaml_typename<StarLaunch::HomePage>()); // ✅ 修正
+            else if (tag == L"Download")
+                ContentFrame().Navigate(xaml_typename<StarLaunch::DownloadsPage>()); // ✅ 修正
+            else if (tag == L"Settings")
+                ContentFrame().Navigate(xaml_typename<StarLaunch::SettingsPage>()); // ✅ 修正
+            else if (tag == L"More")
+                ContentFrame().Navigate(xaml_typename<StarLaunch::MorePage>()); // ✅ 修正
+        }
     }
     int32_t MainWindow::MyProperty()
     {

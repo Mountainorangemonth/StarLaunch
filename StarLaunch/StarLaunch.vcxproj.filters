@@ -5,6 +5,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml" />
+    <Page Include="HomePage.xaml">
+      <Filter>ui</Filter>
+    </Page>
+    <Page Include="DownloadsPage.xaml">
+      <Filter>ui</Filter>
+    </Page>
+    <Page Include="SettingsPage.xaml">
+      <Filter>ui</Filter>
+    </Page>
+    <Page Include="MorePage.xaml">
+      <Filter>ui</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
@@ -20,6 +32,9 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{e48dc53e-40b1-40cb-970a-f89935452892}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{b5df7305-7b1f-4324-87b6-5c7b1d8970fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
@@ -29,5 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
+    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natstepfilter" />
   </ItemGroup>
 </Project>

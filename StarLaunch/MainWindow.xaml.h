@@ -8,6 +8,13 @@ namespace winrt::StarLaunch::implementation
     {
         MainWindow();
 
+
+
+        void NavView_SelectionChanged(
+            winrt::Microsoft::UI::Xaml::Controls::NavigationView const& sender,
+            winrt::Microsoft::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs const& args);
+
+
         int32_t MyProperty();
         void MyProperty(int32_t value);
     };

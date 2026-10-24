@@ -1,0 +1,9 @@
+namespace StarLaunch
+{
+    [default_interface]
+    runtimeclass MorePage : Microsoft.UI.Xaml.Controls.Page
+    {
+        MorePage();
+        Int32 MyProperty;
+    }
+}
