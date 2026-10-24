@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="StarLaunch (Package)/StarLaunch (Package).wapproj" Type="c7167f0d-bc9f-4e6e-afe1-012c56b48db5">
+    <Deploy />
+  </Project>
+  <Project Path="StarLaunch/StarLaunch.vcxproj" Id="1e963883-169a-4f18-9be5-b089b3b1034b" />
+</Solution>
