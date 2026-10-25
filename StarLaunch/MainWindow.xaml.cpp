@@ -26,6 +26,13 @@ namespace winrt::StarLaunch::implementation
         ExtendsContentIntoTitleBar(true);
         SystemBackdrop(DesktopAcrylicBackdrop());
         NavView().SelectedItem(NavView().MenuItems().GetAt(0));
+
+        InitializeComponent();
+        // ↓ Add this. ↓
+        // Hide the default system title bar.
+        ExtendsContentIntoTitleBar(true);
+        // Replace system title bar with the WinUI TitleBar.
+        SetTitleBar(AppTitleBar());
     }
 
     void MainWindow::NavView_SelectionChanged(
@@ -37,13 +44,13 @@ namespace winrt::StarLaunch::implementation
             auto tag = unbox_value<hstring>(item.Tag());
 
             if (tag == L"Home")
-                ContentFrame().Navigate(xaml_typename<StarLaunch::HomePage>()); // ✅ 修正
+                ContentFrame().Navigate(xaml_typename<StarLaunch::HomePage>()); 
             else if (tag == L"Download")
-                ContentFrame().Navigate(xaml_typename<StarLaunch::DownloadsPage>()); // ✅ 修正
+                ContentFrame().Navigate(xaml_typename<StarLaunch::DownloadsPage>()); 
             else if (tag == L"Settings")
-                ContentFrame().Navigate(xaml_typename<StarLaunch::SettingsPage>()); // ✅ 修正
+                ContentFrame().Navigate(xaml_typename<StarLaunch::SettingsPage>()); 
             else if (tag == L"More")
-                ContentFrame().Navigate(xaml_typename<StarLaunch::MorePage>()); // ✅ 修正
+                ContentFrame().Navigate(xaml_typename<StarLaunch::MorePage>()); 
         }
     }
     int32_t MainWindow::MyProperty()

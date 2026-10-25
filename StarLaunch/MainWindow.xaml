@@ -8,9 +8,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title="StarLaunch">
-
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="Base"/>
+    </Window.SystemBackdrop>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TitleBar x:Name="AppTitleBar"
+                  Title="StarLaunch"
+                  Grid.Row="0">
+            <TitleBar.IconSource>
+                <FontIconSource Glyph="&#xF4AA;"/>
+            </TitleBar.IconSource>
+        </TitleBar>
         <NavigationView x:Name="NavView"
+                        Grid.Row="1"
                         IsBackButtonVisible="Collapsed"
                         IsSettingsVisible="False"
                         SelectionChanged="NavView_SelectionChanged">
